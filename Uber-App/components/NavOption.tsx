@@ -3,7 +3,7 @@ import React from 'react'
 import { selectOrgin } from '@/features/navSlice'
 import { useSelector } from 'react-redux'
 import { useNavigation } from 'expo-router'
-
+import { Icon } from 'react-native-elements'
 
 const data=[
     {
@@ -29,16 +29,15 @@ const NavOption:React.FC = () => {
     horizontal
     keyExtractor={(item)=>item.id}
     renderItem={(item)=>(  
-        <TouchableOpacity 
+        <TouchableOpacity className='p-2 pl-6 pb-8 bg-gray-200 m-2 mt-3 ml-0 w-44' 
         onPress={()=>navigation.navigate('MapScreen')} 
-        disabled={!orgin}
         >
-            <View className={`${!orgin && 'opacity-10'}`}>
+            <View>
                 <Image
                  source={{uri:item.item.image}}
                  style={{width:120,height:120,resizeMode:'contain'}}/>
                  <Text className='mt-2 text-lg font-semibold ml-4'>{item.item.title}</Text>
-                 {/* <Icon name='arrowright' color='white' type='antdesign' className=' p-2 bg-black rounded-full w-10 mt-4 ml-3'/> */}
+                 <Icon name='arrowright' color='white' type='antdesign' className=' p-2 bg-black rounded-full w-10 mt-4 ml-3'/>
             </View>
         </TouchableOpacity>
     )}
