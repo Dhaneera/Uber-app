@@ -3,8 +3,8 @@ import React from 'react'
 
 const HomeScreen:React.FC = () => {
   return (
-    <SafeAreaView>
-      <Text>home</Text>
+    <SafeAreaView className=' h-full justify-center'>
+      <Text className=' text-center justify-center'>home</Text>
     </SafeAreaView>
   )
 }
