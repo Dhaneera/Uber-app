@@ -1,4 +1,4 @@
-import { View, Text, FlatList, TouchableOpacity, Image } from 'react-native'
+import { View, Text, FlatList, TouchableOpacity, Image ,StyleSheet} from 'react-native'
 import React from 'react'
 import { selectOrgin } from '@/features/navSlice'
 import { useSelector } from 'react-redux'
@@ -37,12 +37,23 @@ const NavOption:React.FC = () => {
                  source={{uri:item.item.image}}
                  style={{width:120,height:120,resizeMode:'contain'}}/>
                  <Text className='mt-2 text-lg font-semibold ml-4'>{item.item.title}</Text>
-                 <Icon name='arrowright' color='white' type='antdesign' className=' p-2 bg-black rounded-full w-10 mt-4 ml-3'/>
+                 <Icon name='arrowright' color='white' type='antdesign' containerStyle={styles.iconContainer} />
             </View>
         </TouchableOpacity>
     )}
     />
   )
+
 }
 
+const styles= StyleSheet.create({
+    iconContainer: {
+        padding: 8,
+        backgroundColor: 'black',
+        borderRadius: 50,
+        width: 40,
+        marginTop: 16,
+        marginLeft: 12,
+      },
+})
 export default NavOption

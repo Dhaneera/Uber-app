@@ -1,8 +1,11 @@
 import { View, Text, SafeAreaView, Image } from 'react-native'
 import React from 'react'
 import NavOption from '@/components/NavOption'
+import { useNavigation } from 'expo-router'
 
 const HomeScreen:React.FC = () => {
+  const navigation = useNavigation()
+  
   return (
     <SafeAreaView className='h-full'>
      <View className='p-5'>
