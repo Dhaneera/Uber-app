@@ -20,7 +20,7 @@ const MapScreen:React.FC = () => {
   return (
     <View>
     <View className='h-1/2'>
-     <Map/>
+     <Map />
     </View>
     <View className='h-1/2'>
      <Stack.Navigator>

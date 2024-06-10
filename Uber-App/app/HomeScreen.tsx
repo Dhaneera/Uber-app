@@ -1,10 +1,17 @@
 import { View, Text, SafeAreaView, Image } from 'react-native'
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import NavOption from '@/components/NavOption'
 import { useNavigation } from 'expo-router'
 
 const HomeScreen:React.FC = () => {
   const navigation = useNavigation()
+
+      
+  useLayoutEffect(() => {
+    navigation.setOptions({
+        headerShown: false,
+    })
+}, [navigation])
   
   return (
     <SafeAreaView className='h-full'>

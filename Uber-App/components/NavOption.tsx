@@ -10,6 +10,7 @@ const data=[
         id:1,
         title:"Get a ride",
         image:"https://links.papareact.com/3pn",
+        screen:'MapScreen',
     },
     {
         id:2,
@@ -56,4 +57,5 @@ const styles= StyleSheet.create({
         marginLeft: 12,
       },
 })
+
 export default NavOption

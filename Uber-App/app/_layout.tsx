@@ -1,27 +1,29 @@
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import 'react-native-reanimated';
 import 'react-native-gesture-handler'
 import { Provider } from 'react-redux';
 import { store } from '@/store';
-import HomeScreen from './screens/HomeScreen';
+import HomeScreen from './HomeScreen';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { NavigationContainer } from '@react-navigation/native';
-import { Stack } from 'expo-router';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import 'react-native-gesture-handler'
+import MapScreen from './MapScreen';
 
 
+SplashScreen.preventAutoHideAsync();
 
 export type RootRootStackParamList = {
   HomeScreen: undefined
+  MapScreen: undefined
 }
 
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
 
-export default function RootLayout() {
+
+const RootLayout:React.FC=()=>{
 
   const Stack = createNativeStackNavigator<RootRootStackParamList>();
 
@@ -42,12 +44,15 @@ export default function RootLayout() {
 
   return (
     <Provider store={store}>
-        {/* <Stack.Navigator> */}
-        <HomeScreen/>
-        {/* </Stack.Navigator> */}
+      <SafeAreaProvider>
+        <Stack.Navigator initialRouteName='HomeScreen'>
+          <Stack.Screen name='HomeScreen' component={HomeScreen}/>
+          <Stack.Screen name='MapScreen'  component={MapScreen}/>
+        </Stack.Navigator>
+      </SafeAreaProvider>
     </Provider>
 
   );
 }
 
-
+export default RootLayout
